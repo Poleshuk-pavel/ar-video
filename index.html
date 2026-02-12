@@ -43,13 +43,15 @@
 
   </a-scene>
 
-  <script>
-    const sceneEl = document.querySelector('a-scene');
-    const video = document.querySelector('#video');
+<script>
+  const video = document.querySelector("#video");
+  const target = document.querySelector("[mindar-image-target]");
 
-    sceneEl.addEventListener("renderstart", () => {
-      video.play();
-    });
-  </script>
-</body>
-</html>
+  target.addEventListener("targetFound", () => {
+    video.play();
+  });
+
+  target.addEventListener("targetLost", () => {
+    video.pause();
+  });
+</script>
