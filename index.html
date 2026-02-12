@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>AR Video</title>
+  <title>AR Test</title>
 
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image.prod.js"></script>
@@ -12,42 +12,22 @@
 
 <a-scene
   mindar-image="imageTargetSrc: targets.mind;"
-  color-space="sRGB"
-  renderer="colorManagement: true, physicallyCorrectLights"
   vr-mode-ui="enabled: false"
   device-orientation-permission-ui="enabled: false">
-
-  <a-assets>
-    <video id="video"
-           src="video.mp4"
-           preload="auto"
-           autoplay
-           loop
-           muted
-           playsinline
-           webkit-playsinline>
-    </video>
-  </a-assets>
 
   <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
   <a-entity mindar-image-target="targetIndex: 0">
-    <a-video
-      src="#video"
-      width="1"
-      height="0.6"
-      position="0 0 0">
-    </a-video>
+    <a-box 
+      position="0 0 0" 
+      depth="0.1" 
+      height="0.5" 
+      width="0.5"
+      color="red">
+    </a-box>
   </a-entity>
 
 </a-scene>
-
-<script>
-document.addEventListener("click", function () {
-  const video = document.querySelector("#video");
-  video.play();
-});
-</script>
 
 </body>
 </html>
